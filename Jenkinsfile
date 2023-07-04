@@ -8,8 +8,8 @@ def getFtpPublishProfile(def publishProfilesJson) {
 }
 
 node {
-  withEnv(['AZURE_SUBSCRIPTION_ID=<2f93690d-6eee-4088-85d9-529db27bf237>',
-        'AZURE_TENANT_ID=<248b377d-121d-4aeb-b3be-0a05ba2c6036>']) {
+  withEnv(['AZURE_SUBSCRIPTION_ID=2f93690d-6eee-4088-85d9-529db27bf237',
+        'AZURE_TENANT_ID=248b377d-121d-4aeb-b3be-0a05ba2c6036']) {
     stage('init') {
       checkout scm
     }
@@ -19,10 +19,10 @@ node {
     }
   
     stage('deploy') {
-      def resourceGroup = '<workshop>'
-      def webAppName = '<naveen01000>'
+      def resourceGroup = 'workshop'
+      def webAppName = 'naveen01000'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: '<f7daf61e-85f2-4418-8fad-62af30ecdf6f>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+      withCredentials([usernamePassword(credentialsId: 'f7daf61e-85f2-4418-8fad-62af30ecdf6f', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
