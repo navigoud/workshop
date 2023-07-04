@@ -20,7 +20,7 @@ node {
   
     stage('deploy') {
       def resourceGroup = 'workshop'
-      def webAppName = 'naveen01000'
+      def webAppName = 'final001'
       // login Azure
       withCredentials([usernamePassword(credentialsId: 'bacb5513-5878-4630-a6df-1b8a82e0be31', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
        sh '''
