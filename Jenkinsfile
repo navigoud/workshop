@@ -22,7 +22,7 @@ node {
       def resourceGroup = 'workshop'
       def webAppName = 'naveen01000'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: 'f7daf61e-85f2-4418-8fad-62af30ecdf6f', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+      withCredentials([usernamePassword(credentialsId: 'bacb5513-5878-4630-a6df-1b8a82e0be31', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
